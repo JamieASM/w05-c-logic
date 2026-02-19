@@ -17,6 +17,8 @@ typedef struct Clause Clause;
 
 /* You should define your struct Clause here */
 struct Clause {
+    int size;
+    int literals[MAX_LITERALS];
 };
 
 

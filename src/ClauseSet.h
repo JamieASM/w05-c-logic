@@ -17,15 +17,15 @@ typedef struct ClauseSet ClauseSet;
 
 /* You should define your struct ClauseSet here */
 struct ClauseSet {
+    int size;
+    Clause clauses[MAX_CLAUSES];
 };
-
 
 /*
  * Creates a new empty ClauseSet
  * @return the new empty clause set
  */
 ClauseSet new_ClauseSet();
-
 
 /*
  * Adds a clause to the specified ClauseSet
