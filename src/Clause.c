@@ -22,7 +22,7 @@ bool addLiteral(Clause* this, int literal)
     }
 
     // otherwise add the literal
-    this.literals[this->size] = literal;
+    this->literals[this->size] = literal;
     this->size++;
     return true;
 }
@@ -32,7 +32,7 @@ int getLiteral(Clause* this, int index)
     // check that the index is within bounds
     if (index > 0 && index < this->size)
     {
-        return this.literals[index];
+        return this->literals[index];
     }
 
     // otherwise return some err val
@@ -52,17 +52,17 @@ bool removeLiteral(Clause* this, int literal)
 
 	// have to do a while loop since the size will be changing
 	while (i < this->size) {
-		if (this.literals[i] == literal) {
+		if (this->literals[i] == literal) {
 			found = true;
 
 			// move all elements back by one from there
 			for (int j = i; j < this->size - 1; j++) {
-				this.literals[j] = this.literals[j + 1];
+				this->literals[j] = this->literals[j + 1];
 			}
 			this->size--;
 		}
 		else {
-			i++
+			i++;
 		}
 	}
 
@@ -73,7 +73,7 @@ bool containsLiteral(Clause* this, int literal)
 {
     bool found = false;
 	for (int i = 0; i < this->size; i++) {
-		if (this.literals[i] == literal) {
+		if (this->literals[i] == literal) {
 			found = true;
 			break;
 		}

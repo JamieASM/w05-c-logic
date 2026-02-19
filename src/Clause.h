@@ -9,6 +9,7 @@
 #define CLAUSE_H_
 
 #include <stdbool.h>
+#include <string.h>
 
 /* Maximum number of literals you can have in a clause */
 #define MAX_LITERALS 100

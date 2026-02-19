@@ -23,7 +23,7 @@ bool addClause(ClauseSet* this, Clause clause)
     }
 
     // otherwise add the clause
-    this.clauses[this->size] = clause;
+    this->clauses[this->size] = clause;
     this->size++;
     return true;
 }
@@ -38,7 +38,7 @@ bool removeClause(ClauseSet* this, int index)
 
     // remove the clause and move all preceeding clauses back by one
     for (int j = index; j < this->size - 1; j++) {
-        this.clauses[j] = this.clauses[j + 1];
+        this->clauses[j] = this->clauses[j + 1];
     }
 
     return true;
@@ -51,7 +51,7 @@ Clause* getClause(ClauseSet* this, int index)
         return NULL;
     }
 
-    return this.clauses[index];
+    return &this->clauses[index];
 }
 
 int numberOfClauses(ClauseSet* this)
@@ -68,7 +68,7 @@ bool containsEmptyClause(ClauseSet* this)
 {
     for (int i = 0; i < this->size; i++)
     {
-        if (this->clauses[i].isEmptyClause())
+        if (isEmptyClause(&this->clauses[i]))
         {
             return true;
         }
@@ -81,7 +81,7 @@ int findUnitClause(ClauseSet* this)
 {
     for (int i = 0; i < this->size; i++)
     {
-        if (this->clauses[i].isUnitClause())
+        if (isUnitClause(&this->clauses[i]))
         {
             return i;
         }
