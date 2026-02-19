@@ -3,6 +3,7 @@
  */
 
 #include "ClauseSet.h"
+#include "Clause.c"
 
 // Implement all the the functions declared in the ClauseSet.h interface
 ClauseSet new_ClauseSet()
@@ -15,17 +16,76 @@ ClauseSet new_ClauseSet()
 
 bool addClause(ClauseSet* this, Clause clause)
 {
+    // exceeded max size?
+    if (this->size >= MAX_CLAUSES)
+    {
+        return false;
+    }
 
+    // otherwise add the clause
+    this.clauses[this->size] = clause;
+    this->size++;
+    return true;
 }
 
-bool removeClause(ClauseSet* this, int index);
+bool removeClause(ClauseSet* this, int index)
+{
+    // check the index exists within the bounds
+    if (index >= this->size)
+    {
+        return false;
+    }
 
-Clause* getClause(ClauseSet* this, int index);
+    // remove the clause and move all preceeding clauses back by one
+    for (int j = index; j < this->size - 1; j++) {
+        this.clauses[j] = this.clauses[j + 1];
+    }
 
-int numberOfClauses(ClauseSet* this);
+    return true;
+}
 
-bool isEmptyClauseSet(ClauseSet* this);
+Clause* getClause(ClauseSet* this, int index)
+{
+    if (index >= this->size)
+    {
+        return NULL;
+    }
 
-bool containsEmptyClause(ClauseSet* this);
+    return this.clauses[index];
+}
 
-int findUnitClause(ClauseSet* this);
+int numberOfClauses(ClauseSet* this)
+{
+    return this->size;
+}
+
+bool isEmptyClauseSet(ClauseSet* this)
+{
+    return this->size == 0;
+}
+
+bool containsEmptyClause(ClauseSet* this)
+{
+    for (int i = 0; i < this->size; i++)
+    {
+        if (this->clauses[i].isEmptyClause())
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int findUnitClause(ClauseSet* this)
+{
+    for (int i = 0; i < this->size; i++)
+    {
+        if (this->clauses[i].isUnitClause())
+        {
+            return i;
+        }
+    }
+
+    return -1;
+};
