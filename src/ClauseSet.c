@@ -3,7 +3,7 @@
  */
 
 #include "ClauseSet.h"
-#include "Clause.c"
+#include "Clause.h"
 
 // Implement all the the functions declared in the ClauseSet.h interface
 ClauseSet new_ClauseSet()

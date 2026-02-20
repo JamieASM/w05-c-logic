@@ -39,7 +39,6 @@ p cnf 3 2
  * static (akin to "private") helper functions
  */
 
-
 static void readLine(char* buffer, int buf_size, FILE* stream) {
     // clear buffer to make sure we do not get tricked by
     // fgets not reading
