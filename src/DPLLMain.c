@@ -44,6 +44,16 @@ int main(int argc, char *argv[]) {
     // close down DIMACS
     DIMACS_close(&dimacs);
 
+    // now we actually do the DPLL Algorithm
+    if (DPLL(&clauseSet))
+    {
+        printf("true\n");
+    }
+    else
+    {
+        printf("false\n");
+    }
+
     return 0;
 }
 

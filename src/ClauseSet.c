@@ -3,6 +3,9 @@
  */
 
 #include "ClauseSet.h"
+
+#include <string.h>
+
 #include "Clause.h"
 
 // Implement all the the functions declared in the ClauseSet.h interface
@@ -40,6 +43,8 @@ bool removeClause(ClauseSet* this, int index)
     for (int j = index; j < this->size - 1; j++) {
         this->clauses[j] = this->clauses[j + 1];
     }
+
+    this->size--;
 
     return true;
 }

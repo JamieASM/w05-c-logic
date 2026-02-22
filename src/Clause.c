@@ -4,6 +4,8 @@
 
 #include "Clause.h"
 
+#include <string.h>
+
 // Implement all the the functions declared in the Clause.h interface
 Clause new_Clause()
 {
@@ -30,7 +32,7 @@ bool addLiteral(Clause* this, int literal)
 int getLiteral(Clause* this, int index)
 {
     // check that the index is within bounds
-    if (index > 0 && index < this->size)
+    if (index >= 0 && index < this->size)
     {
         return this->literals[index];
     }

@@ -1,9 +1,9 @@
 /*
  * Header file (module interface) for a set of clauses
  */
+#pragma once
 
 #include <stdbool.h>
-#include <stdio.h>
 
 #ifndef CLAUSESET_H_
 #define CLAUSESET_H_
