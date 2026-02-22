@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 
     if (!DIMACS_readClauses(&dimacs, &clauseSet))
     {
-        printf("Failed to read clauses\n");
+        printf("Input Error\n");
         exit(1);
     }
 
